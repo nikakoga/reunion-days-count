@@ -25,7 +25,7 @@ export default function Countdown() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft(getTimeLeft());
-      setBeat((prev) => !prev); // 💗 beat co sekundę
+      setBeat((prev) => !prev); // 💗 beat every sec
     }, 1000);
 
     return () => clearInterval(interval);
@@ -34,22 +34,22 @@ export default function Countdown() {
   if (!timeLeft) {
     return (
       <p className="text-2xl font-bold text-pink-600">
-        💗 Znowu razem 💗
+        💗 Finally together 💗
       </p>
     );
   }
 
   return (
     <div className="flex flex-col items-center gap-6">
-      {/* SERDUSZKA */}
+      {/* Hearts */}
       <Hearts beat={beat} />
 
-      {/* LICZNIK */}
+      {/* Counting */}
       <div className="flex gap-6 text-center">
-        <TimeBox label="dni" value={timeLeft.days} />
-        <TimeBox label="godz" value={timeLeft.hours} />
-        <TimeBox label="min" value={timeLeft.minutes} />
-        <TimeBox label="sek" value={timeLeft.seconds} />
+        <TimeBox label="days" value={timeLeft.days} />
+        <TimeBox label="hours" value={timeLeft.hours} />
+        <TimeBox label="minutes" value={timeLeft.minutes} />
+        <TimeBox label="seconds" value={timeLeft.seconds} />
       </div>
     </div>
   );
